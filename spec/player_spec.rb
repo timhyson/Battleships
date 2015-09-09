@@ -13,14 +13,15 @@ describe Player do
 
   it 'can report miss positions' do
     p = Player.new
-    p.receive_hit('A1')
+    p.receive_miss('A1')
     expect(p.misses).to include('A1')
   end
-  # it 'can report miss positions' do
-  #   p = Player.new
-  #   p.board.receive_a_hit('A1')
-  #   expect(p.misses).to include('A1')
-  # end
+
+  it 'can report hit positions' do
+    p = Player.new
+    p.receive_hit('A1')
+    expect(p.hits).to include('A1')
+  end
 
   # it 'can place ships' do
   #   count = subject.ships.count

@@ -12,8 +12,12 @@ class Player
     @misses = []
   end
 
-  def receive_hit(coord)
+  def receive_miss(coord)
     @misses << coord
+  end
+
+  def receive_hit(coord)
+    @hits << coord
   end
 
 
