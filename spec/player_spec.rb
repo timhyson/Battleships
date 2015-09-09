@@ -23,6 +23,20 @@ describe Player do
     expect(p.hits).to include('A1')
   end
 
+  it 'can report a hit' do
+    p = Player.new
+    ship = Ship.new('A1')
+    p.place(ship)
+    expect(p.receive_hit('A1')).to eq('hit')
+  end
+
+  it 'can report a miss' do
+    p = Player.new
+    ship = Ship.new('A1')
+    p.place(ship)
+    expect(p.receive_miss('B1')).to eq('miss')
+  end
+
   # it 'can place ships' do
   #   count = subject.ships.count
   #   subject.place ship

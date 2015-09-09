@@ -1,16 +1,17 @@
 require_relative 'ship'
+require_relative 'player'
 
 class Board
 
-  attr_reader :ships
+  # attr_reader :ships
 
   def initialize
-    @ships = []
+    # @ships = []
   end
 
-  def place(ship)
-    ships << ship
-  end
+  # def place(ship)
+  #   ships << ship
+  # end
 
   def receive_a_hit(coord)
     ships.each do |ship|
@@ -21,5 +22,13 @@ class Board
     end
     return 'miss'
   end
+
+  # def hit_tally
+  #   @hits.length
+  # end
+
+  # def ship_tally
+  #   @ships.length
+  # end
 
 end

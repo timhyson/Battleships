@@ -13,6 +13,11 @@ describe Ship do
     expect(ship.hits).to eq(num_of_hits+1)
   end
 
+  it 'can be sunk' do
+    ship = Ship.new('A1')
+    expect(ship.was_hit).to eq("sunk")
+  end
+
   # it "not sunk when initiated" do
   #   ship = Ship.new("D5")
   #   expect(ship).not_to be_sunk

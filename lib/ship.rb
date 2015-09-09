@@ -14,6 +14,10 @@ end
 
 def was_hit
   @hits += 1
+  	return "sunk" if @hits == @size
+  
 end
+
+
 
 end
