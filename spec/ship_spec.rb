@@ -18,10 +18,15 @@ describe Ship do
     expect(ship.was_hit).to eq("sunk")
   end
 
-  # it "not sunk when initiated" do
-  #   ship = Ship.new("D5")
-  #   expect(ship).not_to be_sunk
-  # end
+  it 'is afloat' do
+    ship = Ship.new('A1')
+    expect(ship.afloat?).to be_truthy
+  end
+
+  it "not sunk when initiated" do
+    ship = Ship.new("D5")
+    expect(ship.afloat?).to be_truthy
+  end
 
 
 end

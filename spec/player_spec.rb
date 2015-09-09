@@ -37,6 +37,11 @@ describe Player do
     expect(p.receive_miss('B1')).to eq('miss')
   end
 
+  it 'can lose' do
+    p = Player.new
+    expect(p.lost).to eq('Game Over - You Lose')
+  end
+
   # it 'can place ships' do
   #   count = subject.ships.count
   #   subject.place ship

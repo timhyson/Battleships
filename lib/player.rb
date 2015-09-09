@@ -7,9 +7,9 @@ class Player
   attr_reader :board, :ships, :hits, :misses
 
   def initialize
-    @board = Board.new
-    @ships = []
-    @hits = []
+    @board  = Board.new
+    @ships  = []
+    @hits   = []
     @misses = []
   end
 
@@ -23,9 +23,14 @@ class Player
     'hit'
   end
 
-
   def place(ship)
     ships << ship
+  end
+
+  def lost
+    if @ships == @hits
+      return 'Game Over - You Lose'
+    end
   end
 
 end
