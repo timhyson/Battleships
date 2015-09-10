@@ -1,3 +1,25 @@
+**Battleships (Git pong with Time Hyson) **
+============================================
+Week two Makers Academy - Battleships project.
+
+Description
+------------
+
+Collaboration with Tim Hyson on his battleships. Forked from Tims Repo.
+
+Battleships (or Battleship) is a game where each player has a board upon which they can place a number of ships. The boards are 10x10 two dimensional grid.
+
+We have been tasked to create a fully functioning game of battleships using OOD & TDD principles.
+
+Installation/Dependencies
+--------------------------
+- Ruby Version 2.2.0
+- Fully tested with Rspec 3.3.2   
+
+Other Info:
+------------
+
+
 User Stories
 ------------
 ```
