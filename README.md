@@ -1,4 +1,4 @@
-**Battleships (Git pong with Time Hyson) **
+**Battleships (Git pong with Tim Hyson) **
 ============================================
 Week two Makers Academy - Battleships project.
 
@@ -14,7 +14,7 @@ We have been tasked to create a fully functioning game of battleships using OOD 
 Installation/Dependencies
 --------------------------
 - Ruby Version 2.2.0
-- Fully tested with Rspec 3.3.2   
+- Fully tested with Rspec 3.3.2
 
 Other Info:
 ------------
