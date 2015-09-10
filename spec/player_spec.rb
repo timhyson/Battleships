@@ -1,7 +1,8 @@
 require 'player'
 
 describe Player do
-  let(:ship){double :ship}
+  let(:ship){double(:ship, {position: "A1",shipklass: :Ship,direction: :N})}
+  # let(:player){double(:player, {ships: "A1"})}
 
   it 'has a board' do
     expect(subject).to respond_to(:board)
@@ -12,34 +13,32 @@ describe Player do
   end
 
   it 'can report miss positions' do
-    p = Player.new
-    p.receive_miss('A1')
-    expect(p.misses).to include('A1')
+    subject.receive_miss('A1')
+    expect(subject.misses).to include('A1')
   end
 
   it 'can report hit positions' do
-    p = Player.new
-    p.receive_hit('A1')
-    expect(p.hits).to include('A1')
+    subject.place(ship)
+    allow(ship).to receive(:was_hit)
+    subject.receive_hit('A1')
+    expect(subject.hits).to include('A1')
   end
 
   it 'can report a hit' do
-    p = Player.new
-    ship = Ship.new('A1')
-    p.place(ship)
-    expect(p.receive_hit('A1')).to eq('hit')
+    subject.place(ship)
+    expect(subject.receive_hit('A1')).to eq('hit')
   end
 
   it 'can report a miss' do
-    p = Player.new
-    ship = Ship.new('A1')
-    p.place(ship)
-    expect(p.receive_miss('B1')).to eq('miss')
+    subject.place(ship)
+    expect(subject.receive_miss('B1')).to eq('miss')
   end
 
   it 'can lose' do
-    p = Player.new
-    expect(p.lost).to eq('Game Over - You Lose')
+    subject.place(ship)
+    allow(ship.was_hit).to receive(:was_hit)
+    subject.receive_hit("A1")
+    expect(subject.lost).to eq('Game Over - You Lose')
   end
 
   # it 'can place ships' do

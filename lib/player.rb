@@ -8,7 +8,7 @@ class Player
 
   def initialize
     @board  = Board.new
-    @ships  = []
+    @ships_positions  = []
     @hits   = []
     @misses = []
   end
@@ -18,19 +18,28 @@ class Player
     'miss'
   end
 
-  def receive_hit(coord)
-    @hits << coord
-    'hit'
-  end
+  # def receive_hit(coord)
+  #   @ships.each do |x|
+  #     if x.position == coord
+  #       @hits << coord
+  #       x.was_hit
+  #       return 'hit'
+  #       lost
+  #     else
+  #       @misses << coord
+  #       return 'miss'
+  #     end
+  #   end
+  # end
 
-  def place(ship)
-    ships << ship
+  def place(shipklass, position, direction,size = 1)
+    fail "#{position}: ships cannot overlap" if @ship_positions.include?(position)
+    ship_positions << position
+    board.ships << shipklass.new(position, direction,size)
   end
 
   def lost
-    if @ships == @hits
-      return 'Game Over - You Lose'
-    end
+     return 'Game Over - You Lose' if ships.any?{|ship| ship.afloat? == false}
   end
 
 end

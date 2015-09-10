@@ -6,12 +6,8 @@ class Board
   # attr_reader :ships
 
   def initialize
-    # @ships = []
+    @ships = []
   end
-
-  # def place(ship)
-  #   ships << ship
-  # end
 
   def receive_a_hit(coord)
     ships.each do |ship|
@@ -23,12 +19,12 @@ class Board
     return 'miss'
   end
 
-  # def hit_tally
-  #   @hits.length
-  # end
+  def hit_tally
+    @hits.length
+  end
 
-  # def ship_tally
-  #   @ships.length
-  # end
+  def ship_tally
+    @ships.length
+  end
 
 end
